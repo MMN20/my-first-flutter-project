@@ -3,9 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-
-// هذا المشروع يُعتد في الـCV
-
 enum enTurn { X, O }
 
 class HomeScreen extends StatefulWidget {
@@ -60,7 +57,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    double scoresSize = 45.0;
+    double scoresSize = 35;
     return Padding(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -100,7 +97,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ),
           ),
           Expanded(
-            flex: 3,
+            flex: 4,
             child: Center(
                 child: GridView.builder(
                     itemCount: 9,
@@ -108,7 +105,8 @@ class _HomeScreenState extends State<HomeScreen> {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisSpacing: 10,
                             mainAxisSpacing: 10,
-                            crossAxisCount: 3),
+                            crossAxisCount: 3,
+                            mainAxisExtent: 120),
                     itemBuilder: (context, index) {
                       return InkWell(
                         onTap: () {
@@ -133,7 +131,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     })),
           ),
           Expanded(
-            flex: 2,
+            flex: 1,
             child: Center(child: _timerOrButton()),
           ),
         ],
@@ -209,7 +207,6 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 
   void _drawEvent() {
-    
     _stopTimer();
   }
 
@@ -257,7 +254,4 @@ class _HomeScreenState extends State<HomeScreen> {
           style: GoogleFonts.acme(fontSize: 60),
         ));
   }
-
- 
-
 }
